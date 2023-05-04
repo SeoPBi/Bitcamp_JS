@@ -1,0 +1,48 @@
+<script>
+    var userInfo = {
+        userList: [
+            {
+                account: 'kim1234',
+                password: 'kkk1234',
+                username: '김두한'
+            },
+            {
+                account: 'park9876',
+                password: 'ppp9999',
+                username: '박찬호'
+            },
+            {
+                account: 'hong7766',
+                password: 'hhh1234',
+                username: '홍길동'
+            }
+        ]
+    };
+    
+    while(true) {
+        var id = prompt('아이디를 입력하세요');
+        var user = undefined;
+    
+        for (var i = 0; i < userInfo.userList.length; i++) {
+          if (userInfo.userList[i].account === id) {
+            user = userInfo.userList[i];
+            break;
+          }
+        }
+    
+        if(user === undefined) {
+            alert('존재하지 않는 회원입니다.');
+            continue; // 아이디가 없으면 다시 루프의 시작점으로 돌아가서 재입력 받음
+        }
+        
+        var pw = prompt('비밀번호를 입력하세요');
+        
+        if(user.password === pw) {
+            alert(user.username + '님 환영합니다!');
+            break;
+        } else {
+            alert('비밀번호가 틀렸습니다.');
+        }
+    }
+    </script>
+    
