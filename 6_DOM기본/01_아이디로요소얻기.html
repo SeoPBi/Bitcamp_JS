@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <ul>
+            <li id="apple">사과</li>
+            <li id="banana" style="background-color:greenyellow;">바나나</li>
+            <li id="grape">포도</li>
+            <li id="peach">복숭아</li>
+        </ul>
+
+        <script>
+            const $banana = document.getElementById("banana");
+            console.log($banana);
+
+            setColorNumner = prompt('Banana의 배경 색을 지정해주세요. 1. 빨강, 2. 파랑');
+            if(setColorNumner === '1') {
+                $banana.style.background = 'red';
+            } else if(setColorNumner === '2') {
+                $banana.style.background = 'blue';
+            }
+            $banana.style.width = "200px";
+
+            // #peach인 요소를 변수에 저장한 다음, 글씨색을 pink로 바꿔주는 코드를 보내주세요.
+            const $peach = document.querySelector("#peach");
+            $peach.style.color = "pink"; // #, .등을 이용하여 얻어옴
+        </script>
+    </body>
+</html>
