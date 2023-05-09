@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <ul id="fruits">
+            <li>사과</li>
+            <li>바나나</li>
+            <li>포도</li>
+        </ul>
+        <script>
+            const $fruits = document.getElementById("fruits");
+            
+            // li를 새로 만들어주세요.
+            const $newLi = document.createElement("li");
+            
+            // 위에서 만든 li 태그 내부 텍스트를 망고로 해주세요.
+            $newLi.textContent = "망고";
+            
+            // "망고" li태그를 포도와 바나나 사이에 위치시켜보겠습니다.
+            // 포도 앞에 갖다 놓는다고 해야 구현 가능
+            // const $grape = $fruit.lastElementChild; // 포도를 변수에 저장
+            $fruits.insertBefore($newLi, $fruits.lastElementChild); // 포도 앞에 망고 배치
+
+            // 노드 이동시키기
+            const [$apple, $banan, $mango, $grape] = $fruits.children;
+
+            // 이미 0번째 요소인 것을 마지막 요소로 중복해서 넣기
+            $fruits.appendChild($apple); 
+
+            // 바나나의 위치가 사과 한 칸 앞으로 갱신
+            $fruits.insertBefore($banana, $apple); 
+        </script>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="wrap">
+            <!--ul#fruits>li.fr*3-->
+            <ul id="fruits">
+                <li class="fr apple">사과</li>
+                <li class="fr banana">바나나</li>
+                <li class="fr grape">포도</li>
+            </ul>
+        </div>
+        <div class="box">
+
+        </div>
+        <script>
+            // ul 태그를 취득
+            const $fruits = document.getElementById("fruits");
+            
+            // $fruits의 부모태그 얻어오기
+            const $wrap = $fruits.parentElement;
+
+            console.log($wrap);
+
+            // $wrap의 첫번째 자식의 자식요소들을 
+            // 각각 $apple, $banana, $grape라는 변수명으로
+            // 구조분해할당을 이용해 저장해주세요.
+            const[$apple, $banana, $grape] = $wrap.firstElementChild.children;
+            
+            console.log($apple);
+            console.log($banana);
+            console.log($grape);
+
+            // 바나나의 이전 형제의 글씨 색을 빨간색으로 바꿔주세요.
+            $banana.previousElementSibling.style.color = 'red';
+
+            // 사과의 다음 형제의 다음 형제의 배경색을 보라색으로 바꿔주세요.
+            $apple.nextElementSibling.nextElementSibling.style.background = 'violet';
+
+            // .closest('css선택자') : 가장 가까운 태그를 찾음
+            const foundelem = $apple.closest('.wrap');
+
+            console.log(foundelem);
+            
+        </script>
+    </body>
+</html>

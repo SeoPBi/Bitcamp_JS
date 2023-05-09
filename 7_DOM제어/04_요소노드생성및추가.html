@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <ul id="fruits">
+            <li>사과</li>
+        </ul>
+        <script>
+            // li태그를 하나 더 생성해보겠습니다.
+            $newLi = document.createElement("li");
+            console.log($newLi);
+
+            // 생성된 li의 내부 텍스트에 "망고"를 추가 해주세요.
+            $newLi.textContent = "망고";
+            console.log($newLi);
+
+            // 현재 생성된 li를 ul태그 아래에 집어 넣어보겠습니다.
+            // 1. 부모 태그를 새로운 변수에 저장하시고
+            $ul = document.getElementById("fruits");
+
+            // 2. 부모태그.appendChild(자식태그) 형식으로 집어 넣어주세요.
+            $ul.appendChild($newLi);
+
+        </script>
+    </body>
+</html>

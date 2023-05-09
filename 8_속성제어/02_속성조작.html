@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+        <style>
+            .box{
+                width: 100px;
+                height: 100px;
+                background: yellow;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="box" id="item" title="안녕하세요"></div>
+
+    <script>
+        const $box= document.querySelector(".box");
+
+        // 속성값 조회하기 : getAtrribute("속성명");
+        const hello = $box.getAttribute("title");
+        console.log(hello);
+
+        // 속성값 변경 : id 속성의 값을 lemon으로 변경
+        $box.setAttribute("id", "lemon");
+
+        // 속성값 추가 : style, border-radius:50%;를 추가
+        $box.setAttribute('style', 'border-radius:50%');
+
+        // 속성값 제거 : removeAttribute('속성명');
+        $box.removeAttribute("id");
+
+        // 현재 속성의 유무 여부
+        let result = $box.hasAttribute("title");
+        console.log(`title 속성 유무 여부? : ${result}`);
+        
+    </script>
+    </body>
+</html>

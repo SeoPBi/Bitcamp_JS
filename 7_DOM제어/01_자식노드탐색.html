@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <!--ul#fruits>li.fr*3-->
+        <ul id="fruits">
+            <li class="fr apple">사과</li>
+            <li class="fr banana">바나나</li>
+            <li class="fr grape">포도</li>
+        </ul>
+        <div class="box">
+
+        </div>
+        <script>
+            // ul 요소를 취득해주세요
+            const $fruits = document.getElementById("fruits");
+
+            // 정보 콘솔창에서 확인하기
+            // console.log($fruits); // 태그 코드만 나옴
+            console.dir($fruits); // 모든 프로퍼티가 표시됨
+
+            // childNodes는 텍스트 노드도 가져옴
+            const $children = [...$fruits.children]; 
+            
+            console.dir($children);
+
+            // ul태그의 첫 자식 요소와 마지막 자식 요소를 저장해주세요
+            const $first = $fruits.firstElementChild; 
+            const $last = $fruits.lastElementChild;
+
+            console.log($first);
+            console.log($last);
+
+            $first.style.fontSize = '2em';
+
+            // $box를 querySelector로 가져와주세요.
+            $box = document.querySelector(".box");
+            console.log($box);
+
+            // 거의 모든 태그가 텍스트 노드가 자식으로 존재하므로 true
+            console.log($box.hasChildNodes());
+
+            // 따라서 검사용 함수를 따로 만들어야함.
+            function hasChildren($target) {
+                // !!가 붙으면 true, false로 변환됨
+                // 자식요소 길이가 0이면 false, 아니면 true반환
+                return !!$target.children.length;
+            }
+
+            console.log(hasChildren($box));
+
+
+        </script>
+    </body>
+</html>

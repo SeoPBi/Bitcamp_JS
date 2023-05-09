@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <ul id="fruits">
+            <li>사과</li>
+            <li>바나나</li>
+            <li>포도</li>
+        </ul>
+        <script>
+            // ul 내부 요소를 교체하거나 삭제할 예정이므로 ul부터 얻어오기
+            $fruits = document.getElementById("fruits");
+
+            // 새로운 li 생성하기
+            const $newLi = document.createElement("li");
+            $newLi.textContent = '복숭아';
+
+            // 자식 노드 교체 (new, old)
+            // 첫 번째 자식을 복숭아로 교체 해주세요.
+            $fruits.replaceChild($newLi, $fruits.firstElementChild);
+
+            // 마지막 자식 노드 삭제
+            $fruits.removeChild($fruits.lastElementChild);
+        </script>
+    </body>
+</html>
