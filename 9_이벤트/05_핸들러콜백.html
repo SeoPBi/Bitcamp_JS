@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="btn">클릭해주세요.</button>
+
+        <script>
+            // 안녕 이라는 alert창을 띄우는 핸들러 함수
+            function hello() {
+                alert('안녕!');
+            }
+            
+            const $btn = document.getElementById('btn');
+
+            // $btn에 대해 클릭 발생 시 hello 함수 내부 실행문을 실행해라
+            $btn.addEventListener('click', hello);
+            
+            // 익명 함수로 여러분들이 버튼의 배경색을 바꿔주세요.
+            // 힌트 : 19번 라인 구문의 hello가 들어갈 자리에
+            // 화살표 함수나 익명 함수를 직접 만들어주세요. 
+            // 클릭 이벤트 입니다.
+            $btn.addEventListener('click', () =>{
+                $btn.style.background = 'violet';
+            });    
+
+            // 익명 함수는 제거가 안되지만 기명 함수는 제거 가능
+            // 어떤 조건 발동 시 등록된 함수를 삭제할지 적어넣으면 삭제 가능
+            $btn.removeEventListener('click', hello)
+        </script>
+    </body>
+</html>

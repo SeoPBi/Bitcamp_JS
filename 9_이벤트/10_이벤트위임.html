@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+        <style>
+            #fruits {
+                display: flex;
+                list-style: none;
+                padding: 20px;
+                border: 2px solid red;
+                flex-wrap: wrap;
+            }
+    
+            #fruits li {
+                width: 100px;
+                cursor: pointer;
+                background: orange;
+                margin-right: 10px;
+            }
+    
+            .active {
+                color: red;
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <ul id="fruits">
+            <li id="apple" class="active">Apple</li>
+            <li id="banana">Banana</li>
+            <li id="grape">Grape</li>
+        </ul>
+
+        <div>현재 고른 과일 : <em class="msg">Apple</em></div>
+
+        <label>
+            새로운 과일을 추가해주세요!
+            <input type="text" class="text-box">
+            <button id="add">추가</button>
+        </label>
+
+        <script>
+            // li태그 하나하나에 이벤트를 붙이면
+            // 새로운 태그 추가시 새 태그들에도 하나하나 이벤트를 붙여야함
+            // 따라서 부모태그인 ul에 범용적인 이벤트를 바인딩해서
+            // li들에 일괄 적용하는것이 위임임.
+            const $fruits = document.querySelector('#fruits');
+
+            // 태그에서 클래스속성 active 제거
+            const removeActive = () => {
+                for($li of [...$fruits.children]){
+                    if($li.classList.contains('active')){
+                        $li.classList.remove('active');
+                    }
+                }
+            };
+            
+            $fruits.onclick = function(e){
+                // 클릭한 요소가 li가 아니면 이벤트 막음
+                console.log(e.target.matches('#fruits>li'));
+                if(!(e.target.matches('#fruits li'))){
+                    return;// ul이 클릭되었다면 강제로 이벤트 막기
+                }
+
+                // 1. class에 active가 걸린 li의 active 제거
+                removeActive();// 위쪽에 모든 요소의 active를 제거하는 함수 선언됨
+
+                // 2. 새로 클릭한 대상(e.target)에 active클래스 새로 부여
+                e.target.classList.add('active');
+
+                // 3. 텍스트를 em.msg 내부 텍스트로 복사해서 갱신해주세요.
+                // 현재 내가 클릭한 요소의 텍스트 e.target.textContent
+                document.querySelector("em.msg").textContent = e.target.textContent;
+            };
+
+            /*
+                입력창에 과일 이름을 쓰고 '추가' 버튼 누를시
+                입력창에 있던 텍스트가 <li id='텍스트'>텍스트</li>
+                형식으로 ul의 마지막 자식으로 추가되도록 이벤트 설정
+            */
+
+            // add버튼을 변수로 저장하기
+            const $addBtn = document.getElementById('add');
+            const $textInput = document.querySelector('.text-box');
+
+            function makeNewFruit(){
+                // input 태그 내부에 작성된 값은 .value로 얻을 수 있습니다.
+                console.log(`현재 input에 기입된 텍스트 : ${$textInput.value}`);
+
+                // li태그를 document를 이용해 생성해주세요.
+                const $newLi = document.createElement("li");
+
+                // 내부에 textContent로 위에서 입력한 Input의 텍스트를 입력해주세요.
+                $newLi.textContent = $textInput.value;
+
+                // id속성추가 .setAttribute("id", "추가할 id명")
+                $newLi.setAttribute("id", $textInput.value.toLowerCase())
+
+                // ul태그의 자식으로 추가해주세요.
+                $fruits.appendChild($newLi);
+
+
+                // 제출버튼이 눌리면 input에 기입된 텍스트가 사라지게 해 주세요.
+                $textInput.value = '';
+            }
+
+            $addBtn.onclick = makeNewFruit;
+
+
+        </script>
+
+    </body>
+</html>

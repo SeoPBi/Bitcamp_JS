@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <!--button#b$*3-->
+        <button id="b1">Click1</button>
+        <button id="b2">Click2</button>
+        <button id="b3">Click3</button>
+    </body>
+
+    <script>
+        // 버튼 3개에 대해서 변수에 저장
+        const [$b1, $b2, $b3] = document.querySelectorAll('button');
+
+        // b1에 연동할 함수 선언
+        const sayHello = () => {
+            alert('안녕하세요!!!!');
+        }
+
+        // b1에 onclick 이벤트로 sayHello 함수연결
+        $b1.onclick = sayHello;
+
+        // -------------------------------------------------
+
+        // b2를 클릭 했을때 배경색이 빨간색이 되도록 해주세요.
+        const red = () => {
+            $b2.style.background = 'red';
+        }     
+
+        $b2.onclick = red;
+
+        // -------------------------------------------------
+
+        // b3를 마우스가 올라가면 배경색 파란색이 되게 해주시고
+        // 마우스가 빠져나가면 배경색이 노란색이 되게 해주세요.
+        const blue = () => {
+            $b3.style.background = 'blue'
+        }
+
+        const yellow = () => {
+            $b3.style.background = 'yellow'
+        }
+
+        $b3.onmouseover = blue;
+        $b3.onmouseout = yellow;
+
+    </script>
+</html>

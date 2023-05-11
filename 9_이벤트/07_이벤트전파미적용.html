@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>우리 고유의 음식</h1>
+        <h3>클릭하면 설명이 나옵니다.</h3>
+        <ul>
+            <li id="kimchi">김치</li>
+            <li id="samgyup">삼겹살</li>
+            <li id="gamja">감자전</li>
+            <li id="magkul">막걸리</li>
+            <li id="jjajang">짜장면</li>
+            <li id="bibim">비빔밥</li>
+        </ul>
+        
+        <script>
+            const [$k, $s, $g, $m, $j, $b] = document.querySelectorAll('li');
+            $k.onclick = () => {
+                alert("kimchi is korean");
+            }
+
+            $s.onclick = () => {
+                alert("samgyop is korean");
+            }
+
+            $g.onclick = () => {
+                alert("gamja is korean");
+            }
+
+            $m.onclick = () => {
+                alert("makgul is korean")
+            }
+
+            $j.onclick = () => {
+                alert("jjajang is korean")
+            }
+
+            $b.onclick = () => {
+                alert("bibim is korean")
+            }
+
+        </script>
+    </body>
+</html>

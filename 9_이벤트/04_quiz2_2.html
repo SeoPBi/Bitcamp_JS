@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+        <style>
+            /*
+            ul {
+                color:white;
+                font-size:0px;
+            }*/
+        </style>
+    </head>
+    <body>
+        <div id="lunchMenu">
+            <button id="showMenu">메뉴 추천!</button>
+
+            <script>
+                // css와 js를 적절히 사용해서
+                // 처음에는 ul이 안 보이다가, 메뉴 추천 버튼을 누르면
+                // ul이 노출되도록 이벤트를 구현해주세요.
+                const showText = function(){
+                    $ul = document.querySelector('ul');
+                    $ul.style.color = 'blue';
+                    $ul.style.fontSize = '1em';
+                }
+
+                const showText2 = function() {
+                    $body = document.querySelector('body');
+                    $body.innerHTML += `            <ul>
+                <li>피자</li>
+                <li>치킨</li>
+                <li>탕수육</li>
+                <li>김치볶음밥</li>
+            </ul>`;
+                }
+
+                $btn = document.getElementById("showMenu");
+                $btn.onclick = showText2;
+
+
+            </script>
+        </div>
+    </body>
+</html>
