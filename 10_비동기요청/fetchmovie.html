@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- 1. 영진위 API에서 일일박스 오피스 2023/05/05 정보를 얻어와서
+            콘솔에 찍어주는 함수 getBoxOffice()를 선언해주세요. -->
+        <!-- 2. 버튼을 만들고 onclick 이벤트로 해당 함수를 연결해주세요. -->
+        <button onclick="getBoxOffice()">일일 박스 오피스 정보 가져오기</button>
+        
+        <!-- 3. 비동기식으로 요청이 들어가는지 체크해주세요. -->
+        <script>
+            async function getBoxOffice() {
+                const response = await fetch("https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20230505"); // GET
+                const jsonData = await response.json();
+                console.log(jsonData);
+            }
+        </script>
+    </body>
+</html>
