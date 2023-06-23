@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="movieInfo">
+
+    </div>
+    <button id="reqBtn" onclick="reqFunc()">영화정보 가져오기</button>
+    <script>
+        // fetch()를 이용해 
+        // http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20230223
+        // 카톡에 드린 주소에 request를 넣으시고, 얻어온 json데이터를 console에 찍어주세요.
+        let reqFunc = () => {
+        fetch("http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20230223")
+        .then(response => response.json())
+        .then(data => {
+            let str = "";
+            // 배열이기도 하고, 변수명이 길어서 재할당
+            console.log(data.boxOfficeResult.dailyBoxOfficeList);
+            let mList = data.boxOfficeResult.dailyBoxOfficeList;
+            // 배열이므로 반복문 처리
+            for(m of mList){
+               // 1위부터 10위 영화 정보가 순차적으로 m 변수에 저장됨
+               str += `<h1>${m.rank}위 영화 제목 :  ${m.movieNm}, 누적관객수 : ${m.audiAcc}명</h1>`; 
+            }
+            const movieInfo = document.getElementById("movieInfo");
+            movieInfo.innerHTML = str;
+        })};
+
+    </script>
+</body>
+</html>    
